@@ -1,0 +1,90 @@
+﻿<Window x:Name="addCounterAgent" x:Class="RJD_IntangibleValuesAccounting.View.AddCounterAgent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RJD_IntangibleValuesAccounting.View"
+        mc:Ignorable="d"
+        Title="" Height="380" Width="550" WindowStartupLocation="CenterScreen"  >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="143*"/>
+
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="53*"/>
+
+            <ColumnDefinition Width="15*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Название компании:" Grid.Row="2"  HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17" Margin="0,0,0,0" Foreground="Black" FontFamily="/Theatre_Nemov_ISP_31;component/Fonts/#Gilroy Bold" TextWrapping="Wrap" TextAlignment="Right" Padding="0,0,5,0"/>
+
+        <Border x:Name="addDisciplineBorder" Grid.Row="0" Grid.ColumnSpan="3"  Background="Black" Cursor="Hand" >
+            <materialDesign:PackIcon Kind="BusinessOutline" Width="60" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+
+
+        </Border>
+        <TextBox Text="{Binding CounterAgentName}" x:Name="nameBox" Grid.Row="2" VerticalAlignment="Center" FontSize="15" Height="30" Margin="0,0,0,0" Width="AUTO" Foreground="Black" Cursor="Arrow" Grid.Column="1" TextAlignment="Center" />
+
+        <TextBlock Text="Адресс:" TextWrapping="Wrap" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17" Margin="0,0,0,0" Foreground="Black" FontFamily="/Theatre_Nemov_ISP_31;component/Fonts/#Gilroy Bold" TextAlignment="Right" Padding="0,0,5,0"/>
+        <TextBox Text="{Binding CounterAgentHolder}" x:Name="holderBox" Grid.Row="3" VerticalAlignment="Center" FontSize="15" Height="30" Margin="0,0,0,0" Width="AUTO" Foreground="Black" Cursor="Arrow" Grid.Column="1" TextAlignment="Center"  />
+
+        <TextBlock Text="Руководитель: " Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17" Margin="0,0,0,0" Foreground="Black" FontFamily="/Theatre_Nemov_ISP_31;component/Fonts/#Gilroy Bold"/>
+        <TextBox Text="{Binding CounterAgentAddress}" x:Name="addressOrgBox" Grid.Row="4" VerticalAlignment="Center" FontSize="15" Height="30" Margin="0,0,0,0" Width="AUTO" Foreground="Black" Cursor="Arrow" Grid.Column="1" TextAlignment="Center"  />
+
+
+
+
+        <Grid Grid.Row="6" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="298"/>
+
+                <ColumnDefinition />
+
+            </Grid.ColumnDefinitions>
+            <Button x:Name="saveBtn" 
+                Content="Сохранить"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Width="118"
+                Height="42"
+                Foreground="White"
+                BorderBrush="{x:Null}"
+                Click="saveBtn_Click"
+                    Grid.Row="6" Cursor="Hand" FontFamily="Proxima Nova Rg" Margin="0,0,0,10" Grid.Column="1">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="cancelBtn" 
+                Content="Отмена"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Width="118"
+                Height="42"
+                Foreground="White"
+                BorderBrush="{x:Null}"
+                Click="cancelBtn_Click"
+                    Grid.Row="6" Cursor="Hand" FontFamily="Proxima Nova Rg" Grid.Column="1" Margin="0,0,0,10" >
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+        </Grid>
+
+    </Grid>
+</Window>

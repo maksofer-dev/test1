@@ -1,0 +1,160 @@
+﻿<Window x:Name="counterAgentWindow" x:Class="RussianCosmetics.View.CounterAgentListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RJD_IntangibleValuesAccounting.View"
+        mc:Ignorable="d"
+        Title="" 
+        MinHeight="500" MinWidth="800" Height="650"  Width="1050"    
+        WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="90"/>
+
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <Border x:Name="disciplineBorder" Background="Black" Grid.ColumnSpan="2"  Cursor="Arrow" >
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand">
+                <materialDesign:PackIcon Kind="BusinessOutline" 
+                                             Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,19.7,0" Foreground="White"/>
+
+
+                <TextBlock Text="ЮЛ Лица" FontSize="25"
+                               FontFamily="/RJD_IntangibleValuesAccounting;component/Fonts/#RussianRail G Pro"
+                               Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" />
+            </StackPanel>
+        </Border>
+
+        <StackPanel x:Name="buttsPanel" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+            <Button x:Name="addBtn" 
+                Content="Добавить"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Width="100"
+                Height="40"
+                Background="#FF656565"
+                Foreground="White"
+                Click="addBtn_Click"
+                    Grid.Row="0" Cursor="Hand" FontFamily="/RJD_IntangibleValuesAccounting;component/Fonts/#IBM Plex Sans" BorderBrush="{x:Null}" Padding="0,0,0,0">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="delBtn" 
+                Content="Удалить"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Width="100"
+                Height="40"
+                Background="#FF656565"
+                Foreground="White"
+                BorderBrush="{x:Null}"
+                Click="delBtn_Click"
+                    Grid.Row="0" Cursor="Hand" FontFamily="/RJD_IntangibleValuesAccounting;component/Fonts/#IBM Plex Sans" Margin="50,0,0,0">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="refreshBtn" 
+                Content="Обновить"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Width="100"
+                Height="40"
+                Background="#FF656565"
+                Foreground="White"
+                BorderBrush="{x:Null}" 
+                Click="refreshBtn_Click"
+                    Grid.Row="0" Cursor="Hand" FontFamily="/RJD_IntangibleValuesAccounting;component/Fonts/#IBM Plex Sans" Margin="50,0,0,0">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+        </StackPanel>
+        <Button x:Name="backBN" Width="80" FontFamily="/RJD_IntangibleValuesAccounting;component/Fonts/#IBM Plex Sans" Height="40" Grid.Row="1" Foreground="White" Background="#FF656565" Content="Назад" HorizontalAlignment="Left" Margin="10,0,0,0" Click="backBN_Click" Cursor="Hand" Padding="0,0,0,0"/>
+
+        <DataGrid x:Name="dGridAgents" Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True" Foreground="#FF292929" FontFamily="/RJD_IntangibleValuesAccounting;component/Fonts/#IBM Plex Sans">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn  Header="Название организации" Binding="{Binding CounterAgentName}" Width="200">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+
+
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn  Header="Владелец" Binding="{Binding CounterAgentHolder}" Width="200">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+
+
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn  Header="Адресс организации" Width="220" Binding="{Binding CounterAgentAddress}">
+
+                    <DataGridTextColumn.HeaderStyle>
+
+                        <Style TargetType="DataGridColumnHeader">
+
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+
+
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+                <DataGridTemplateColumn x:Name="editCell" >
+                    <DataGridTemplateColumn.CellTemplate>
+
+                        <DataTemplate>
+                            <Button  Content="Редактировать" x:Name="btnEdit" Click="btnEdit_Click" Width="130" HorizontalAlignment="Center" Cursor="Hand" Background="#FFFA0706" Foreground="White"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
